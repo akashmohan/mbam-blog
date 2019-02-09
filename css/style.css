@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+}
+.site-wrapper {
+	min-height: 100vh;
+	padding: 30px;
+	display: flex;
+	flex-flow: column nowrap;
+	font-family: 'Raleway', sans-serif; 
+}
+.top-bar {
+	display: flex;
+	align-content: center;
+	font-size: 30px;
+	justify-content: space-between;
+}
+.brand-text, .post-title {
+	font-weight: 900;
+}
+.post-title {
+	
+}
+.post-body {
+	line-height: 23px;
+}
