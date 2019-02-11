@@ -40,3 +40,30 @@ footer a {
 	flex-grow: 1;
 	text-align: left;
 }
+
+@media only screen and (min-width: 425px) {
+	.site-wrapper {
+		flex-direction: row;
+		padding: 0;
+	}
+	.top-bar {
+		flex-direction: column;
+		align-self: flex-start;
+		height: 100vh;
+		padding: 30px;
+	}
+	.brand-text {
+		writing-mode: vertical-lr;
+		transform: rotate(-180deg);
+	}
+	.content-wrapper {
+		display: flex;
+		flex-flow: column nowrap;
+		padding: 30px 40px 30px;
+	}
+	.content {
+		flex-grow: 1;
+		display: flex;	
+		align-items: center;
+	}
+}
