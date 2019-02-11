@@ -51,6 +51,8 @@ footer a {
 		align-self: flex-start;
 		height: 100vh;
 		padding: 30px;
+		position: fixed;
+
 	}
 	.brand-text {
 		writing-mode: vertical-lr;
@@ -60,6 +62,7 @@ footer a {
 		display: flex;
 		flex-flow: column nowrap;
 		padding: 30px 40px 30px;
+		margin-left: 60px;
 	}
 	.content {
 		flex-grow: 1;
