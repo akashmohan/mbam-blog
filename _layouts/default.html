@@ -2,9 +2,43 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Blog | my thoughts and articles</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="application-name" content="mbam blog">
+	<meta name="description" content="blog written by akash mohan">
+	<meta name="author" content="Akash">
+
+	<title>{{ page.title }}</title>
+
+	<!-- Normalize.css for consistancy across browsers -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,400,900" rel="stylesheet">
+
+	<!-- Icon Fonts -->
+	<link href="https://file.myfontastic.com/SM5YgQ5gRwssT4iAnYoSyZ/icons.css" rel="stylesheet">
+
+	<!-- Site Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
-	{{content}}
+	<div class="site-wrapper">
+		<div class="top-bar">
+			<span class="menu-icon icon-bars"></span>
+			<span class="brand-text">mbam</span>
+		</div>
+		<div class="content-wrapper">
+			<div class="content">
+				{{ content }}
+			</div>
+			<footer>
+				<p class="footer-text">with <span class="icon-heart"> by am</span></p>	
+				<a class="link-github" href="https://github.com/akashmohan"><span class="icon-github"></span></a>
+				<a class="link-twitter" href="https://twitter.com/amkdev"><span class="icon-twitter"></span></a>
+			</footer>
+		</div>
+	</div>
 </body>
-</html>
+</html>	

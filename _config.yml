@@ -1,3 +1,3 @@
-markdown: redcarpet
+markdown: kramdown
 baseurl: /mbam-blog
 exclude: ['README.md'] 

@@ -17,9 +17,6 @@
 .brand-text, .post-title {
 	font-weight: 900;
 }
-.post-title {
-	
-}
 .post-body {
 	line-height: 23px;
 }
@@ -69,4 +66,19 @@ footer a {
 		display: flex;	
 		align-items: center;
 	}
+}
+
+/* styles for index */
+.all-posts-title {
+	font-weight: 200;
+}
+.posts-list {
+	padding-left: 0;
+	list-style-type: none;
+}
+.posts-list-item {
+	margin-bottom: 10px;
+}
+.posts-list-item a {
+	color: #000;
 }
