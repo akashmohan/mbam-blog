@@ -2,64 +2,34 @@
 layout: default
 title: mbam | articles and code thoughts from the code that i write	
 ---
+
 <h1 class="all-posts-title">Posts</h1>
 <section class="articles posts-section">
 	<h3 class="section-title">Articles</h3>
 	<ul class="posts-list">
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
+		<!-- Add Limit In Case There Are A Lots Of Articles -->
+		{% for article in site.categories.article %}
+			<li class="posts-list-item"><a href="{{ article.url }}">{{ article.title }}</a></li>
+		{% endfor %}
 	</ul>
 </section>
 <section class="tutorials posts-section">
 	<h3 class="section-title">Tutorials</h3>
 	<ul class="posts-list">
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
+		{% for tutorial in site.categories.tutorial %}
+			<li class="posts-list-item"><a href="{{ tutorial.url }}">{{ tutorial.title }}</a></li>
+		{% endfor %}
 	</ul>
 </section>
 <section class="screencasts posts-section">
 	<h3 class="section-title">Screencasts</h3>
 	<ul class="posts-list">
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
-
-		<li class="posts-list-item"><a href="#">Let me write a dummy title</a></li>
-		<li class="posts-list-item"><a href="#">this is a little long dummy title written for mbam</a></li>
-		<li class="posts-list-item"><a href="#">hurray, this is one more dummy title i've written to showcase my blog</a></li>		
+		{% if site.categories.screencast | size %}
+			{% for screencast in site.categories.screencast %}
+				<li class="posts-list-item"><a href="{{ screencast.url }}">{{ screencast.title }}</a></li>
+			{% endfor %}
+		{% else %}
+			<li class="no-post-message">sorry. no posts found</li>
+		{% endif %}
 	</ul>
 </section>
