@@ -9,7 +9,7 @@ title: mbam | articles and code thoughts from the code that i write
 	<ul class="posts-list">
 		<!-- Add Limit In Case There Are A Lots Of Articles -->
 		{% for article in site.categories.article %}
-			<li class="posts-list-item"><a href="{{ article.url }}">{{ article.title }}</a></li>
+			<li class="posts-list-item"><a class="post-link" href="{{ article.url }}">{{ article.title }}</a></li>
 		{% endfor %}
 	</ul>
 </section>
@@ -17,7 +17,7 @@ title: mbam | articles and code thoughts from the code that i write
 	<h3 class="section-title">Tutorials</h3>
 	<ul class="posts-list">
 		{% for tutorial in site.categories.tutorial %}
-			<li class="posts-list-item"><a href="{{ tutorial.url }}">{{ tutorial.title }}</a></li>
+			<li class="posts-list-item"><a class="post-link" href="{{ tutorial.url }}">{{ tutorial.title }}</a></li>
 		{% endfor %}
 	</ul>
 </section>
@@ -26,10 +26,44 @@ title: mbam | articles and code thoughts from the code that i write
 	<ul class="posts-list">
 		{% if site.categories.screencast | size %}
 			{% for screencast in site.categories.screencast %}
-				<li class="posts-list-item"><a href="{{ screencast.url }}">{{ screencast.title }}</a></li>
+				<li class="posts-list-item"><a class="post-link" href="{{ screencast.url }}">{{ screencast.title }}</a></li>
 			{% endfor %}
 		{% else %}
 			<li class="no-post-message">sorry. no posts found</li>
 		{% endif %}
 	</ul>
 </section>
+
+<section class="post-overlay" style="display: none">
+	
+</section>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+	let links = document.querySelectorAll('.post-link');
+	let overlay = document.querySelector('.post-overlay');
+	history.replaceState('all-posts', null, '/');
+	links.forEach((link) => {
+		link.addEventListener('click', (e) => {
+			axios.get(link.href)
+				.then((post) => {
+					history.pushState('single-post', null, link.href);
+					overlay.style.display = 'block';
+					overlay.innerHTML = post.data;
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+			e.preventDefault();
+		})
+	});
+
+	window.addEventListener('popstate', (event) => {
+		console.log(event);
+
+		if( event.state == 'all-posts' ) {
+			document.querySelector('.post-overlay').style.display = 'none';
+		}
+	})
+
+</script> 
